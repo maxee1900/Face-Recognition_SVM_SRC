@@ -62,6 +62,8 @@ SVM的主要思想是针对两类分类问题，寻找一个超平面作为两�
 ### 3.1.3 核函数
 实际的训练集通常是线性不可分的，这就需要运用到核技巧将原空间中的点映射到线性可分的高维空间，如图3-2。常用的核函数有：线性核函数、多项式核函数、高斯核函数（RBF核函数），sigmoid核函数。核函数的选择对分类器的影响较大，本实验选取高斯核，因为时间有限，对选用哪种核函数效果更好不做进一步的讨论。
 
+![image text](https://github.com/maxee1900/Face-Recognition/blob/master/2.png)
+
 ### 3.1.4 多分类支持向量机
 实际分类通常涉及多类问题的区分，而SVM的理论是二类问题的区分，解决多类问题通常的方法如下，前两种方法最常见：（1）一对多（one-vs-rest），构造k个SVM，分类时将未知样本分类为具有最大分类值的那类；（2）一对一（one-vs-one），任意两个样本之间设计一个SVM共n(n-1)/2，分类时为得票最多的类；（3）层次分类（H-SVMs），分层：所有类别分成子类，子类再分，循环得到单独的类。
 
@@ -70,10 +72,14 @@ libsvm是台湾大学林智仁教授开发设计的一个简单、快速有效�
 
 其中option的可选项如图3-3。
 
+![image text](https://github.com/maxee1900/Face-Recognition/blob/master/3.png)
+
 
 ## 3.2 稀疏表示
 在SRC（Sparse Representation Classification）算法中，一个很重要的环节是对范数最小化问题的优化求解，不同的优化算法可涉及到L0、L1、L2范数等。对于L1范数最小化问题已经有很多种快速求解方法，主要包括有梯度投影Gradient Projection,同伦算法，迭代阈值收缩，领域梯度Proximal Gradient，增广拉格朗日方法，这几种方法都比正交匹配追踪算法OMP要高效的多。上述几种快速算法中，采用增广拉格朗日的对偶实现相比其它的快速算法要更好。在本文实验中选用Homotopy算法。
 
 图3-4具体介绍SRC算法。
+
+![image text](https://github.com/maxee1900/Face-Recognition/blob/master/4.png)
 
 在本文实验的代码中，没有考虑上述SRC算法中的扰动e0项。
