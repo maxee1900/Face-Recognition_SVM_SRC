@@ -78,7 +78,7 @@ libsvm是台湾大学林智仁教授开发设计的一个简单、快速有效�
 ## 3.2 稀疏表示
 在SRC（Sparse Representation Classification）算法中，一个很重要的环节是对范数最小化问题的优化求解，不同的优化算法可涉及到L0、L1、L2范数等。对于L1范数最小化问题已经有很多种快速求解方法，主要包括有梯度投影Gradient Projection,同伦算法，迭代阈值收缩，领域梯度Proximal Gradient，增广拉格朗日方法，这几种方法都比正交匹配追踪算法OMP要高效的多。上述几种快速算法中，采用增广拉格朗日的对偶实现相比其它的快速算法要更好。在本文实验中选用Homotopy算法。
 
-图3-4具体介绍SRC算法。
+图3-4具体介绍SRC算法。 
 
 ![image text](https://github.com/maxee1900/Face-Recognition/blob/master/4.png)
 
